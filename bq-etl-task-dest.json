@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "fikri-project-426605",
+  "private_key_id": "6420e894b5d4abc91ebcc43faaedac4d7606408e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQD972oi+dRaFW7O\nUhmIFrdyMJZQWNxSRKFDax6+3YOysvEDwHPEtdWuLkxREwXgEqRJW2MW/Itx6/OA\nKGtoHHQH3705uyhBa/vu4AvDjnlfPb28ga7BQaf+Jl4Q2PYyDeNdibQW5aPyHxGl\npP8E76gsynw+aGPqLwzLM7vHihtu3rjWPp1VE70ejXPrs5F6K4WTSsIlejt2XCT3\naaj9R7DNeH6w+HPy5+JI6m9+bg348mE88cDbFuxp22zVbV6uTmd7Qo9uGxv3+8S1\nR9xKLeAmbE00Vqd9iL9m8gkfbScNwgTJVTf5Vmfk6ASgwk8Td4dfhv2sVyz0ntKW\nnzjrMuaPAgMBAAECggEAbOzVyksAG+Q1s6rj6MxVxFWzJKP5XhCyXAkHFzhN1cmM\nON/EyQx2rFCPy/cs/gEBF7ZruuB5sFRWDxNHf1E1NGt0796oVefMGZthcHEc/w2s\n5b97BsrzFMHAd9mZQb9TWDxJU8kNmj5Zg4RTH/rtWMlCokKFGV81TbTTR7SmL9ff\nFKu8thGuW+glI0/e/Fy/tcgC5Rt+MNB/2hNOJb6gjFkqDkdmhoDLATz1KA1TSKtn\n3wlm3kySw+Db356V4Q/HZakOCGlh3o3cE3HO4wkkOm8rqb0lqKbJMKkChX/F51tZ\nK9BNfLw9npRyjRYbgxMQASmuKQf9tynx1C8vvfqrAQKBgQD/VMSrnC540BfJ8K1J\nbDi/5FibgsZ4RLiSOrdfFaFG+FCFsRLRCaEbgKD5eXLF3GXolo5s6H5t2d1v6mji\n70BO4IXGrctVVUjsEApYaUnnyctYknNii4SXB5Spb8/a0j5t8onZVZGFXTzn5/9w\nJWcgJzLR+95EvIYyY26MW5Z+KQKBgQD+mbXQxuXPLu22srXVIRMCIIYbJrlE5zJb\nIMP9VBUXHoCAb33/c6CpVPakvpWfn9bGXDawZhtTbifz4U5N/7IUnvVt0bp7hrnj\nj7IOZdgaIeEnsWXTGT4hdOijA6oEC2uwauNTcpQgNZ5s/XRCNzhMOf0xM4yD+7SX\neY4t+JFl9wKBgHU08GLmet6yh3kHpkRCDXro01PvoDOtOBzIH0zinPn7GtuEAWM7\nzFzXmw1qFqmFFrLCCfcscnzyuZeaPzONKDQNFNuzA9fUInlak6UqD+b61wF9mMHv\n0ZmSvUdaMEv+nvHRmD3P7dEOj9rUwIk2YjR8SfPibpGXCPMweZqsoFShAoGBAPhV\njZZaqwVvTMaLgfilDhlhB+2r08J1kBR63TBXt0qZodWk6k0kx2zjRsBidScBjUhl\n4aIltjmmlKm49dv2sAiVE+dOTor2WpKwMokApcy3hxpkWmGRmZygn9mBVXAkg6HM\nYHegpwLTyfedMKz1l6AiX+iB02lZNkkZc6k7bvb5AoGAE5dwdFrMQxaQkEdrKy3e\nwl+lXlYRuLHsoIWYXa4u86qY3GG5aYJn5IRBc0w6Xql0wFFm1hgYeLnBfdr1gdVg\nR5b47h6vV89MuaOFHBa6J/Ly6wwCE9DyLZJ8JntxyhAEQ7v0VrNLFG1qo/aEUKyR\nuuuG42g1WD5v1F6viS34gIE=\n-----END PRIVATE KEY-----\n",
+  "client_email": "fikri-bq-dest@fikri-project-426605.iam.gserviceaccount.com",
+  "client_id": "102397411544478424821",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/fikri-bq-dest%40fikri-project-426605.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
