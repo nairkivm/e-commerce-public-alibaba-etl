@@ -1,4 +1,4 @@
-vendor_id 	vendor_name 	vendor_phone 	vender_email
+vendor_id 	vendor_name 	vendor_phone 	vendor_email
 5000	Apple 	2569561656	apple@gmail.com
 5100	 Microsoft 	6165486561	microsoft@gmail.com
 5200	Lenovo 	3215689466	lenovo@gmail.com

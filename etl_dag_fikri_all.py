@@ -9,7 +9,7 @@ import os
 
 sys.path.append('/home/tsabitghazian/airflow_demo/dags/ourplayground/etl-workshop/etl_fikri')
 
-from etl_bigquery_to_bigquery_daily import BigQueryToBigQueryPipeline
+from etl_batch import BigQueryToBigQueryPipeline
 
 # Set default arguments
 default_args = {
