@@ -1,0 +1,5 @@
+store.fact_orders
+store.fact_order_details
+store.dim_products
+store.dim_users
+store.dim_vendors

@@ -18,7 +18,7 @@ sys.path.insert(
 )
 
 logging.basicConfig(
-    filename=f'{os.path.dirname(__file__)}\..\log\etl_stream.log',
+    filename=f'{os.path.dirname(__file__)}/../logs/etl_stream.log',
     filemode='a',
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     level=logging.INFO,
