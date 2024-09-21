@@ -15,7 +15,7 @@ sys.path.insert(
 )
 
 logging.basicConfig(
-    filename=f'{os.path.dirname(__file__)}\..\log\source_producer.log',
+    filename=f'{os.path.dirname(__file__)}\..\etl-log\source_producer.log',
     filemode='a',
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     level=logging.INFO,

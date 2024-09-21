@@ -1,0 +1,29 @@
+# Use the apache airflow image from the Docker Hub
+FROM apache/airflow:2.10.1-python3.9
+
+# Copy the requirements file into the container
+COPY requirements.txt ./
+
+# Install any needed packages specified in requirements.txt
+RUN pip install --upgrade pip
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the requirements file into the container
+COPY requirements.txt ./
+
+# Copy the requirements file into the container
+ARG CREDENTIAL
+COPY ${CREDENTIAL} ./
+
+# Copy the rest of the application code into the container
+COPY ./dags /opt/airflow/dags
+COPY ./utils /opt/airflow/utils
+COPY ./data_source /opt/airflow/data_source
+
+# Make port 80 available to the world outside this container
+EXPOSE 80
+
+# Set PYTHONPATH
+ENV PYTHONPATH="/opt/airflow/dags:/opt/airflow/utils:/opt/airflow/data_source"
+
+USER root

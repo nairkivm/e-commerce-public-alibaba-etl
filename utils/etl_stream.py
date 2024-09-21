@@ -6,6 +6,7 @@ from time import sleep
 from google.oauth2.credentials import Credentials
 from google.oauth2 import service_account
 from google.cloud import bigquery
+
 import sys
 import os
 sys.path.insert(
@@ -18,7 +19,7 @@ sys.path.insert(
 )
 
 logging.basicConfig(
-    filename=f'{os.path.dirname(__file__)}/../logs/etl_stream.log',
+    filename=f'{os.path.dirname(__file__)}/../etl-logs/etl_stream.log',
     filemode='a',
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     level=logging.INFO,
