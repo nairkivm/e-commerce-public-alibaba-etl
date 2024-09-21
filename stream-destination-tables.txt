@@ -1,0 +1,3 @@
+store.fact_carts_has_products
+store.fact_shoppingcarts
+store.fact_products_sold_vendor

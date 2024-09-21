@@ -12,23 +12,76 @@ services:
     restart: always
     networks:
       - my_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   zookeeper:
-    image: wurstmeister/zookeeper:3.4.6
+    image: wurstmeister/zookeeper:latest
     ports:
       - "2181:2181"
     networks:
       - my_network
+    healthcheck:
+      test: ["CMD-SHELL", "echo srvr | nc localhost 2181 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   kafka:
-    image: wurstmeister/kafka:2.12-2.2.1
+    image: wurstmeister/kafka:latest
     ports:
       - "9092:9092"
+    expose:
+      - "9093"
     environment:
-      KAFKA_ADVERTISED_LISTENERS: INSIDE://kafka:9092,OUTSIDE://localhost:9092
+      KAFKA_ADVERTISED_LISTENERS: INSIDE://kafka:9093,OUTSIDE://localhost:9092
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
-      KAFKA_LISTENERS: INSIDE://0.0.0.0:9092,OUTSIDE://0.0.0.0:9092
+      KAFKA_LISTENERS: INSIDE://0.0.0.0:9093,OUTSIDE://0.0.0.0:9092
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - my_network
+    depends_on:
+      zookeeper:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "kafka-topics.sh --list --bootstrap-server ${BOOTSTRAP_SERVER}"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  airflow-init:
+    build: 
+      context: .
+      dockerfile: Dockerfile-airflow
+      args:
+        CREDENTIAL: ${CREDENTIAL}
+    image: my_airflow_image:latest
+    environment:
+      - AIRFLOW__CORE__EXECUTOR=${AIRFLOW__CORE__EXECUTOR}
+      - AIRFLOW__CORE__SQL_ALCHEMY_CONN=${AIRFLOW__CORE__SQL_ALCHEMY_CONN}
+      - AIRFLOW__CORE__FERNET_KEY=${AIRFLOW__CORE__FERNET_KEY}
+      - AIRFLOW__CORE__LOAD_EXAMPLES=${AIRFLOW__CORE__LOAD_EXAMPLES}
+      - AIRFLOW__CORE__DAGS_FOLDER=${AIRFLOW__CORE__DAGS_FOLDER}
+      - AIRFLOW__WEBSERVER__SECRET_KEY=${AIRFLOW__WEBSERVER__SECRET_KEY}
+    command: >
+      bash -c "airflow db init &&
+               airflow users create --username ${ADMIN_USERNAME} --password ${ADMIN_PASSWORD} --firstname ${ADMIN_FIRSTNAME} --lastname ${ADMIN_LASTNAME} --role Admin --email ${ADMIN_EMAIL}"
+    volumes:
+      - ./dags:/opt/airflow/dags:z
+      - ./etl-logs:/opt/airflow/etl-logs:z
+      - ./utils:/opt/airflow/utils:z
+      - ./data_source:/opt/airflow/data_source:z
+    env_file:
+      - .env
+    depends_on:
+      postgres:
+        condition: service_healthy
     networks:
       - my_network
 
@@ -49,9 +102,7 @@ services:
     ports:
       - "8080:8080"
     command: >
-      bash -c "airflow db init &&
-               airflow users create --username ${ADMIN_USERNAME} --password ${ADMIN_PASSWORD} --firstname ${ADMIN_FIRSTNAME} --lastname ${ADMIN_LASTNAME} --role Admin --email ${ADMIN_EMAIL} &&
-               airflow webserver"
+      bash -c "airflow webserver"
     volumes:
       - ./dags:/opt/airflow/dags:z
       - ./etl-logs:/opt/airflow/etl-logs:z
@@ -60,7 +111,8 @@ services:
     env_file:
       - .env
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
     networks:
       - my_network
 
@@ -88,7 +140,8 @@ services:
     env_file:
       - .env
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
     networks:
       - my_network
 
@@ -96,13 +149,20 @@ services:
     build:
       context: .
       dockerfile: Dockerfile-stream
-      args:
-        CREDENTIAL: ${CREDENTIAL}
+    image: my_kafka:latest
+    command: >
+      bash -c "python3 main_etl_stream.py"
     volumes:
-      - .:/usr/src/app
+      - ./data_source:/usr/src/app/data_source
+      - ./etl-logs:/usr/src/app/etl-logs
+      - ./utils:/usr/src/app/utils
+      - ./main_etl_stream.py:/usr/src/app/main_etl_stream.py
     working_dir: /usr/src/app
     env_file:
       - .env
+    depends_on:
+      kafka:
+        condition: service_healthy
     networks:
       - my_network
 
@@ -110,13 +170,20 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile-stream
-      args:
-        CREDENTIAL: ${CREDENTIAL}
+    image: my_kafka:latest
+    command: >
+      bash -c "python3 main_source_producer.py"
     volumes:
-      - .:/usr/src/app
+      - ./data_source:/usr/src/app/data_source
+      - ./etl-logs:/usr/src/app/etl-logs
+      - ./utils:/usr/src/app/utils
+      - ./main_source_producer.py:/usr/src/app/main_source_producer.py
     working_dir: /usr/src/app
     env_file:
       - .env
+    depends_on:
+      kafka:
+        condition: service_healthy
     networks:
       - my_network
 
@@ -125,3 +192,4 @@ volumes:
 
 networks:
   my_network:
+    driver: bridge

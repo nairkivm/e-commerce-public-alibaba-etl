@@ -15,15 +15,12 @@ sys.path.insert(
 )
 
 logging.basicConfig(
-    filename=f'{os.path.dirname(__file__)}\..\etl-log\source_producer.log',
+    filename=f'{os.path.dirname(__file__)}/../etl-logs/source_producer.log',
     filemode='a',
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     level=logging.INFO,
     datefmt='%Y-%m-%d %H:%M:%S'
 )
-
-from utils.source_requirements import SourceRequirements
-from utils.destination_requirements import DestinationRequirements
 
 class CsvToProducerPipeline():
     

@@ -1,22 +1,35 @@
-from utils.source_producer import CsvToProducerPipeline
-import argparse
-from datetime import datetime
+import threading
+import os
 
+from utils.source_producer import CsvToProducerPipeline
+from utils.destination_requirements import DestinationRequirements
 from utils.source_requirements import SourceRequirements
+from utils.check_connection import check_connection
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(
-        description='Produce the topics'
-    )
-    parser.add_argument('--source-table', help='Source table nama', required=True)
-    parser.add_argument('--bootstrap-server', help='Kafka bootstrap server. Default: "localhost:9092"', default="localhost:9092", required=True)
-    parser.add_argument('--topic-name', help='Kafka topic name.', required=True)
-    
-    args = parser.parse_args()
+    print(f'[Topic Producer] STARTING...')
 
-    print('[Topic Producer] STARTING...')
-    starting_time = datetime.now()
-    CsvToProducerPipeline(args.source_table, SourceRequirements().requirements[args.source_table]['source_path'], args.bootstrap_server, args.topic_name).run()
-    ending_time = datetime.now()
-    elapsed_duration = ending_time - starting_time
-    print(f'[Topic Producer] DONE! ({elapsed_duration})')
+    dest_tables = [str(x).removesuffix('\n') for x in open('./stream-destination-tables.txt')]
+    
+    threads = []
+    for table_name in dest_tables:
+        source_table = DestinationRequirements().requirements[table_name]['source_tables'][0]
+        csv_source_path = SourceRequirements().requirements[source_table]['source_path']
+        bootstrap_server = os.environ.get('BOOTSTRAP_SERVER')
+        topic_name = os.environ.get('TOPIC_NAME')+f'_{table_name.split(".")[1]}'
+        print(
+            'source_table: ', source_table, '\n',
+            'csv_source_path: ', csv_source_path, '\n',
+            'bootstrap_server: ', bootstrap_server, '\n',
+            'topic_name: ', topic_name
+        )
+        check_connection(bootstrap_server.split(":")[0], bootstrap_server.split(":")[1])
+        pipeline = CsvToProducerPipeline(source_table, csv_source_path, bootstrap_server, topic_name)
+        thread = threading.Thread(target=pipeline.run)
+        threads.append(thread)
+        thread.start()
+
+    for thread in threads:
+        thread.join()
+    
+    print(f'[Topic Producer] DONE!')

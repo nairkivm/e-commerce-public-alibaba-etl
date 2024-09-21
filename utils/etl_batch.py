@@ -20,7 +20,7 @@ from utils.validate_data import getDataValidation
 
 
 logging.basicConfig(
-    filename=f'{os.path.dirname(__file__)}/../logs/etl.log',
+    filename=f'{os.path.dirname(__file__)}/../etl-logs/etl.log',
     filemode='a',
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     level=logging.INFO,

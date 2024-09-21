@@ -4,6 +4,9 @@ FROM python:3.9
 # Set the working directory in the container
 WORKDIR /usr/src/app
 
+USER root
+RUN apt-get update && apt-get install -y iputils-ping
+
 # Copy the requirements file into the container
 COPY requirements.txt ./
 
@@ -14,5 +17,12 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Create a directory for logs
 RUN mkdir -p /usr/src/app/etl-logs
 
-# Copy the rest of the application code into the container
-COPY . .
+# # Copy the rest of the application code into the container
+# COPY . .
+
+# COPY necessary files
+COPY stream-destination-tables.txt ./
+COPY c_destination.json ./
+
+
+ENV PYTHONPATH="/usr/src/app:/usr/src/app/utils:/usr/src/app/data_source"
