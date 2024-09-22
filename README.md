@@ -121,7 +121,7 @@ python main_source_producer.py >> <path-to-your-producer.log-file> 2>&1
 16. The producer broadcast the topics for every 5s, imitating real-life transactions that can happen at any time. While the producer is running, we need to run the consumer or the ETL-stream process. Open another terminal and run this.
 
 ```bash
-python main_etl_stream.py <path-to-your-producer.log-file> 2>&1
+python main_etl_stream.py >> <path-to-your-producer.log-file> 2>&1
 ```
 
 17. If you want to run the stream-process using Docker containerization, modify the `.env` file (`CREDENTIAL_PATH_FOR_STREAM` and `BOOTSTRAP_SERVER`) and uncomment `zookeper`, `kafka`, `etl-stream`, and `producer-stream` service on `docker-compose.yml` (if you previously comment it out).
