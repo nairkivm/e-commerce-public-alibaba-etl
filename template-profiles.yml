@@ -1,0 +1,14 @@
+{{DBT_PROJECT_NAME}}:
+  outputs:
+    dev:
+      dataset: {{DBT_DATASET_NAME}}
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      keyfile: {{CREDENTIAL_PATH_FOR_DBT}}
+      location: US
+      method: service-account
+      priority: interactive
+      project: {{GCP_PROJECT_ID}}
+      threads: 4
+      type: bigquery
+  target: dev
