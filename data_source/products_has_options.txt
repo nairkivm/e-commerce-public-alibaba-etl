@@ -25,7 +25,7 @@ product_id 	option_id 	quantity	price 	on_sale 	specs
 2300	2302	30	25	1	Monoprice Ultra Slim 60Hz High Speed HDMI Cable, 18Gbps, 40AWG, YUV 6:4:0, 8ft, Black
 2400	2401	1	10	0	Monoprice Commercial 32Hz High Speed HDMI Cable, 10Gbps, 24AWG, CL2, 6ft, Black
 2400	2402	10	20	0	Monoprice Commercial 80Hz High Speed HDMI Cable, 18Gbps, 40AWG, CL2, 8ft, Black
-2500	2501	1	250	1	1000XM1 Wireless Headphones 20 Hzñ20,000 Hz (44 kHz Sampling)/ 20 Hzñ40,000 Hz (LDAC 96 kHz Sampling, 990 kbps)
-2500	2502	20	350	1	1200XM3 Wireless Headphones 40 Hzñ40,000 Hz (54 kHz Sampling)/40 Hzñ60,000 Hz (LDAC 120 kHz Sampling, 800 kbps)
-2600	2601	9	800	0	Sony IER-M7 In-ears Headphone. Driver Unit by Quad-balanced armature. Frequency Response 5 Hzñ20,000 Hz
-2600	2602	60	900	1	Sony IER-M9 In-ears Headphone. Driver Unit by Penta Balanced Armature. Frequency Response 10 Hzñ40,000 Hz
+2500	2501	1	250	1	1000XM1 Wireless Headphones 20 Hzï¿½20,000 Hz (44 kHz Sampling)/ 20 Hzï¿½40,000 Hz (LDAC 96 kHz Sampling, 990 kbps)
+2500	2502	20	350	1	1200XM3 Wireless Headphones 40 Hzï¿½40,000 Hz (54 kHz Sampling)/40 Hzï¿½60,000 Hz (LDAC 120 kHz Sampling, 800 kbps)
+2600	2601	9	800	0	Sony IER-M7 In-ears Headphone. Driver Unit by Quad-balanced armature. Frequency Response 5 Hzï¿½20,000 Hz
+2600	2602	60	900	1	Sony IER-M9 In-ears Headphone. Driver Unit by Penta Balanced Armature. Frequency Response 10 Hzï¿½40,000 Hz
