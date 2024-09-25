@@ -13,6 +13,6 @@ SELECT
     tracking_number,
     delivery_status,
     user_id,
-    credit_cart_number
+    credit_card_number
 FROM `store.fact_orders`
-WHERE delivery_status = True;
+WHERE delivery_status = True

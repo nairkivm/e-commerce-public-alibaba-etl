@@ -24,6 +24,12 @@ ENV LANG=C.UTF-8
 
 RUN python -m pip install --upgrade "pip==24.0" "setuptools==69.2.0" "wheel==0.43.0" --no-cache-dir
 
+# Copy the requirements file into the container
+COPY requirements.txt ./
+
+# Install any needed packages specified in requirements.txt
+RUN pip install --upgrade pip
+RUN pip install --no-cache-dir -r requirements.txt
 
 FROM base as dbt-bigquery
 

@@ -120,7 +120,6 @@ class SourceRequirements:
                     'user_id': {'type': 'object'},
                     'username': {'type': 'object'},
                     'password': {'type': 'object'},
-                    'username': {'type': 'object'},
                     'full_name': {'type': 'object'},
                     'address': {'type': 'object'},
                     'email': {'type': 'object'},

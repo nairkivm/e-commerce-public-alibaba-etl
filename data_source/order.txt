@@ -6,3 +6,23 @@ order_id	total_item	shipping_fee	tax 	total_cost	order_date	delivery_date	ship_n
 1004	6	7	0.0625	30.45	2018-10-16	2018-10-19	Rachel Rose	1465 River Dr, Boston, MA 43625 	IK64001 	1
 1005	5	8	0.0625	100.2	2018-10-13	2018-10-16	Sophie Sutton	1896 West Dr, Portland, OR 65842	OP65001 	0
 1006	3	5	0.1025	58.52	2018-10-21	2018-10-24	Wendy West	1252 Vine St, Chicago, IL 73215	XH66001 	1
+1007	7	3	1.023	433.67	2018-11-02	2018-11-03	Gregory Adams	58318 Julie Brook Apt. 457 Melissaton, TN 37328	QD3061	0
+1008	49	8	0.819	33481.23	2018-11-13	2018-11-17	Jessica Stephens	84780 Tiffany Parkway Apt. 716 Port Richardstad, HI 34587	RV8582	0
+1009	26	20	0.923	75046.23	2018-11-17	2018-11-24	Jennifer Smith	653 Higgins Crossing West Paul, WI 09924	YN6049	1
+1010	28	13	0.969	13061.72	2018-12-18	2018-12-23	Angela Mccall	01263 Joel Viaduct Lake Bethanybury, CO 38663	UQ1705	1
+1011	29	20	0.689	3448.34	2018-12-20	2018-12-26	Jason Riggs	244 Reyes Flat Lake Robinport, NH 09718	ZO4884	0
+1012	6	4	0.835	2797.19	2018-10-22	2018-10-25	Jay Aguilar	2725 Kathleen Crossing Suite 191 New Sallyshire, PW 95882	FF7094	1
+1013	29	5	0.84	36398.64	2018-10-25	2018-10-30	Christopher Kaiser	PSC 4461, Box 8050 APO AE 14654	LW1618	0
+1014	18	2	0.893	868.85	2018-10-26	2018-10-31	George Moore	893 Burch Mission Bradyhaven, ME 21849	DU7928	0
+1015	28	8	0.616	17758.75	2018-10-27	2018-11-02	Leroy Molina	31273 Kristy Terrace Apt. 365 West Julia, HI 76227	YI6693	0
+1016	17	16	0.764	1374.29	2018-10-28	2018-10-29	Hailey Alexander	81488 Miller Tunnel Watkinsburgh, MD 55175	UT3905	0
+1017	13	7	0.859	2122.09	2018-10-30	2018-11-06	William Allen	25918 Jesse Curve Suite 152 West Jameschester, NJ 57680	ZW9770	0
+1018	40	6	0.645	68760.74	2018-11-09	2018-11-16	Kenneth Aguilar	97253 Taylor Cliff Apt. 650 Ellisside, OH 11550	IB8101	1
+1019	46	13	0.655	43854.02	2018-11-11	2018-11-12	Diana Ellis	8387 John Ridge Allisonshire, IN 90279	SF3365	1
+1020	29	9	0.877	50413.93	2018-11-16	2018-11-19	Jennifer Prince	143 Holt Glens Garciahaven, ID 67776	TQ1066	1
+1021	21	14	0.888	44734.95	2018-11-23	2018-11-24	Nicholas Mejia	Unit 2956 Box 1758 DPO AE 35773	BL9377	1
+1022	36	5	0.957	39300.25	2018-11-23	2018-11-30	Joshua Kelly	807 Crystal Fields New Johnport, MD 86937	ZA8098	1
+1023	26	4	0.996	43001.87	2018-11-24	2018-11-30	Samantha Joseph	6790 Audrey Branch Suite 856 Jenniferbury, IL 33926	DH7065	0
+1024	29	14	0.669	17908.97	2018-12-01	2018-12-05	Corey Mckenzie	02744 Schmidt Place Suite 249 New Jon, VI 17052	GQ1665	1
+1025	17	2	0.968	12264.18	2018-12-08	2018-12-11	Anthony Young	745 Raymond Heights Apt. 027 New Leslieborough, TN 14117	MR2186	0
+1026	17	3	1.007	27587.17	2018-12-16	2018-12-17	Michael Kelly	376 Zuniga Way Apt. 495 Port Lauraland, VI 34943	OU8461	0

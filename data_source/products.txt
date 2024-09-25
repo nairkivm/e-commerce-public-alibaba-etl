@@ -14,3 +14,52 @@ product_id	product_name	descriptions
 2400	Monoprice Ultra Slim Series High Speed HDMI Cable - 4K	Monoprice Commercial Cable supports the following HDMI features: 4K resolution at 24Hz. 3D video. 
 2500	Avantree HT3189 Wireless Headphones	Avantree HT3189 Wireless Headphones for TV Watching & PC Gaming with Bluetooth
 2600	COWIN E7 PRO	Active Noise Cancelling Headphone Bluetooth Headphones with Microphone Hi-Fi Deep Bass Wireless Headphones Over Ear 30H Playtime for Travel Work TV Computer Phone
+2700	Dell Inspiron 15	A versatile laptop with a 15.6-inch display, Intel Core i5 processor, and 8GB RAM.
+2800	HP Spectre x360 A 2-in-1 laptop with a 13.3-inch touchscreen, Intel Core i7 processor, and 16GB RAM.
+2900	Samsung Galaxy S21  A high-end smartphone with a 6.2-inch display, Exynos 2100 processor, and 128GB storage.
+3000	Google Pixel 5	A smartphone with a 6.0-inch OLED display, Snapdragon 765G processor, and 128GB storage.
+3100	iPad Pro 11-inch	A powerful tablet with an 11-inch Liquid Retina display, A12Z Bionic chip, and 256GB storage.
+3200	Microsoft Surface Pro 7	A versatile tablet with a 12.3-inch display, Intel Core i5 processor, and 8GB RAM.
+3300	Lenovo ThinkPad X1 Carbon	A lightweight laptop with a 14-inch display, Intel Core i7 processor, and 16GB RAM.
+3400	ASUS ROG Zephyrus G14	A gaming laptop with a 14-inch display, AMD Ryzen 9 processor, and NVIDIA GeForce RTX 2060 GPU.
+3500	Bose QuietComfort 35 II	Wireless noise-cancelling headphones with up to 20 hours of battery life.
+3600	Sony WH-1000XM4	Industry-leading noise-cancelling headphones with up to 30 hours of battery life.
+3700	JBL Charge 4	Portable Bluetooth speaker with up to 20 hours of playtime and IPX7 waterproof rating.
+3800	Amazon Echo Dot (4th Gen)	Smart speaker with Alexa and improved sound quality.
+3900	Google Nest Hub Max	Smart display with a 10-inch screen and built-in Google Assistant.
+4000	Fitbit Charge 4	Fitness tracker with built-in GPS, heart rate monitoring, and sleep tracking.
+4100	Garmin Forerunner 245	GPS running watch with advanced training features and music storage.
+4200	Oculus Quest 2	All-in-one VR headset with a high-resolution display and 64GB storage.
+4300	DJI Mavic Air 2	Compact drone with 4K camera, 34-minute flight time, and advanced obstacle avoidance.
+4400	PlayStation 5	Next-gen gaming console with ultra-high-speed SSD and 4K gaming capabilities.
+4500	Xbox Series X	Powerful gaming console with 12 teraflops of processing power and 1TB SSD.
+4600	Samsung QLED 8K TV	75-inch 8K TV with Quantum Processor 8K and AI upscaling.
+4700	Roku Streaming Stick+	4K streaming device with long-range wireless and voice remote.
+4800	Kindle Paperwhite	E-reader with a 6-inch high-resolution display and built-in adjustable light.
+4900	Philips Hue White and Color Ambiance	Smart light bulb with 16 million colors and voice control.
+5000	Ring Video Doorbell 3	Smart doorbell with 1080p HD video, motion detection, and two-way talk.
+5100	Nest Learning Thermostat	Smart thermostat with auto-schedule and energy-saving features.
+5200	TP-Link Kasa Smart Plug	Wi-Fi smart plug with voice control and energy monitoring.
+5300	August Smart Lock Pro	Smart lock with remote access, auto-lock, and compatibility with Alexa and Google Assistant.
+5400	Arlo Pro 3	Wireless security camera with 2K HDR video, color night vision, and 160-degree field of view.
+5500	First Alert Smoke and CO Detector	Smart smoke and carbon monoxide detector with voice alerts and mobile notifications.
+5600	Sonos One	Smart speaker with voice control and rich, room-filling sound.
+5700	Lenovo Smart Clock	Smart clock with Google Assistant and 4-inch touchscreen display.
+5800	Ray-Ban Stories	Smart glasses with built-in cameras and audio.
+5900	GoPro HERO9 Black	Action camera with 5K video, 20MP photos, and HyperSmooth 3.0 stabilization.
+6000	Garmin Dash Cam Mini	Compact dash camera with 1080p HD video and voice control.
+6100	Motorola MBP36XL	Video baby monitor with 5-inch screen, remote pan, tilt, and zoom.
+6200	Furbo Dog Camera	Pet camera with treat tossing, 1080p HD video, and two-way audio.
+6300	Tile Pro	High-performance Bluetooth tracker with a 400-foot range and replaceable battery.
+6400	Anker PowerDrive 2	Dual USB car charger with PowerIQ technology for fast charging.
+6500	iOttie Easy One Touch 4	Car mount with one-touch locking mechanism and adjustable viewing angles.
+6600	Pioneer AVH-2500NEX	In-dash car stereo with 7-inch touchscreen, Apple CarPlay, and Android Auto.
+6700	Seagate Backup Plus Portable	External hard drive with 2TB storage and USB 3.0 connectivity.
+6800	SanDisk Extreme Pro SDXC	High-performance memory card with 128GB storage and up to 170MB/s read speed.
+6900	Kingston DataTraveler 100 G3	USB flash drive with 64GB storage and USB 3.0 interface.
+7000	TP-Link Archer AX6000	High-speed Wi-Fi 6 router with 8-stream connectivity and advanced security features.
+7100	Netgear Nighthawk X6S	Tri-band Wi-Fi router with 4x4 MU-MIMO and 3.2Gbps speed.
+7200	Epson EcoTank ET-4760	All-in-one printer with cartridge-free printing and up to 2 years of ink included.
+7300	Brother HL-L2350DW	Compact monochrome laser printer with wireless printing and duplex capability.
+7400	Canon CanoScan LiDE400	High-resolution flatbed scanner with 4800 dpi and USB-C connectivity.
+7500	Logitech C920s Pro HD Webcam	Full HD webcam with 1080p video and built-in privacy shutter.

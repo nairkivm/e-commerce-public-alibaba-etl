@@ -5,4 +5,47 @@ category_id 	category_name
 4300	Servers
 4400	PC
 4500	Cables
-4600	Headphones
+4600	Headphones4700 Monitors
+4800	Keyboards
+4900	Mice
+5000	Printers
+5100	Scanners
+5200	Webcams
+5300	Speakers
+5400	Microphones
+5500	External Drives
+5600	Memory Cards
+5700	USB Hubs
+5800	Routers
+5900	Switches
+6000	Modems
+6100	Projectors
+6200	Smartwatches
+6300	Fitness Trackers
+6400	VR Headsets
+6500	Drones
+6600	Game Consoles
+6700	Smart TVs
+6800	Streaming Devices
+6900	E-readers
+7000	Smart Home Devices
+7100	Security Cameras
+7200	Thermostats
+7300	Light Bulbs
+7400	Smart Plugs
+7500	Smart Locks
+7600	Doorbells
+7700	Smoke Detectors
+7800	Carbon Monoxide Detectors
+7900	Smart Speakers
+8000	Smart Displays
+8100	Smart Glasses
+8200	Wearable Cameras
+8300	Action Cameras
+8400	Dash Cams
+8500	Baby Monitors
+8600	Pet Cameras
+8700	GPS Trackers
+8800	Car Chargers
+8900	Car Mounts
+9000	Car Audio Systems

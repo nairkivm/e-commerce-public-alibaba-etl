@@ -29,3 +29,101 @@ option_id 	option_name
 2502	COWIN E7 PRO - Red
 2601	COWIN E7 PRO - Pink
 2602	COWIN E7 PRO - White
+2701	Dell Inspiron 15 - 8GB RAM
+2702	Dell Inspiron 15 - 16GB RAM
+2801	HP Spectre x360 - 13.3-inch
+2802	HP Spectre x360 - 15.6-inch
+2901	Samsung Galaxy S21 - 128GB
+2902	Samsung Galaxy S21 - 256GB
+3001	Google Pixel 5 - 128GB
+3002	Google Pixel 5 - 256GB
+3101	iPad Pro 11-inch - 128GB
+3102	iPad Pro 11-inch - 256GB
+3201	Microsoft Surface Pro 7 - 128GB
+3202	Microsoft Surface Pro 7 - 256GB
+3301	Lenovo ThinkPad X1 Carbon - 8GB RAM
+3302	Lenovo ThinkPad X1 Carbon - 16GB RAM
+3401	ASUS ROG Zephyrus G14 - 16GB RAM
+3402	ASUS ROG Zephyrus G14 - 32GB RAM
+3501	Bose QuietComfort 35 II - Black
+3502	Bose QuietComfort 35 II - Silver
+3601	Sony WH-1000XM4 - Black
+3602	Sony WH-1000XM4 - Silver
+3701	JBL Charge 4 - Black
+3702	JBL Charge 4 - Blue
+3801	Amazon Echo Dot (4th Gen) - Charcoal
+3802	Amazon Echo Dot (4th Gen) - Glacier White
+3901	Google Nest Hub Max - Charcoal
+3902	Google Nest Hub Max - Chalk
+4001	Fitbit Charge 4 - Black
+4002	Fitbit Charge 4 - Rosewood
+4101	Garmin Forerunner 245 - Black
+4102	Garmin Forerunner 245 - Aqua
+4201	Oculus Quest 2 - 64GB
+4202	Oculus Quest 2 - 256GB
+4301	DJI Mavic Air 2 - Fly More Combo
+4302	DJI Mavic Air 2 - Standard
+4401	PlayStation 5 - Digital Edition
+4402	PlayStation 5 - Standard Edition
+4501	Xbox Series X - 1TB
+4502	Xbox Series X - 2TB
+4601	Samsung QLED 8K TV - 65-inch
+4602	Samsung QLED 8K TV - 75-inch
+4701	Roku Streaming Stick+ - Standard
+4702	Roku Streaming Stick+ - 4K
+4801	Kindle Paperwhite - 8GB
+4802	Kindle Paperwhite - 32GB
+4901	Philips Hue White and Color Ambiance - Single
+4902	Philips Hue White and Color Ambiance - 2-Pack
+5001	Ring Video Doorbell 3 - Standard
+5002	Ring Video Doorbell 3 - Plus
+5101	Nest Learning Thermostat - 3rd Gen
+5102	Nest Learning Thermostat - 4th Gen
+5201	TP-Link Kasa Smart Plug - Single
+5202	TP-Link Kasa Smart Plug - 2-Pack
+5301	August Smart Lock Pro - Silver
+5302	August Smart Lock Pro - Black
+5401	Arlo Pro 3 - Single Camera
+5402	Arlo Pro 3 - 2-Camera Kit
+5501	First Alert Smoke and CO Detector - Battery
+5502	First Alert Smoke and CO Detector - Hardwired
+5601	Sonos One - Black
+5602	Sonos One - White
+5701	Lenovo Smart Clock - Standard
+5702	Lenovo Smart Clock - Essential
+5801	Ray-Ban Stories - Wayfarer
+5802	Ray-Ban Stories - Round
+5901	GoPro HERO9 Black - Standard
+5902	GoPro HERO9 Black - Bundle
+6001	Garmin Dash Cam Mini - Standard
+6002	Garmin Dash Cam Mini - Bundle
+6101	Motorola MBP36XL - Standard
+6102	Motorola MBP36XL - Deluxe
+6201	Furbo Dog Camera - Standard
+6202	Furbo Dog Camera - Plus
+6301	Tile Pro - Black
+6302	Tile Pro - White
+6401	Anker PowerDrive 2 - Black
+6402	Anker PowerDrive 2 - White
+6501	iOttie Easy One Touch 4 - Standard
+6502	iOttie Easy One Touch 4 - Deluxe
+6601	Pioneer AVH-2500NEX - Standard
+6602	Pioneer AVH-2500NEX - Premium
+6701	Seagate Backup Plus Portable - 1TB
+6702	Seagate Backup Plus Portable - 2TB
+6801	SanDisk Extreme Pro SDXC - 64GB
+6802	SanDisk Extreme Pro SDXC - 128GB
+6901	Kingston DataTraveler 100 G3 - 32GB
+6902	Kingston DataTraveler 100 G3 - 64GB
+7001	TP-Link Archer AX6000 - Standard
+7002	TP-Link Archer AX6000 - Pro
+7101	Netgear Nighthawk X6S - Standard
+7102	Netgear Nighthawk X6S - Pro
+7201	Epson EcoTank ET-4760 - Standard
+7202	Epson EcoTank ET-4760 - Deluxe
+7301	Brother HL-L2350DW - Standard
+7302	Brother HL-L2350DW - Pro
+7401	Canon CanoScan LiDE400 - Standard
+7402	Canon CanoScan LiDE400 - Premium
+7501	Logitech C920s Pro HD Webcam - Standard
+7502	Logitech C920s Pro HD Webcam - Deluxe

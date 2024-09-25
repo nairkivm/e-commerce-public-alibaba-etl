@@ -26,4 +26,4 @@ EXPOSE 80
 # Set PYTHONPATH
 ENV PYTHONPATH="/opt/airflow/dags:/opt/airflow/utils:/opt/airflow/data_source"
 
-USER root
+USER airflow

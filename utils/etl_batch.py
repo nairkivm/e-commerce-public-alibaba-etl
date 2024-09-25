@@ -55,7 +55,10 @@ class CsvToBigQueryPipeline(GenericPipelineInterface):
             if table_name in DestinationRequirements().requirements[self.dest_table]['source_tables']
         }
         for table_name, path in source_paths.items():
-            dfs[table_name] = pd.read_csv(path, sep="\t", encoding_errors='ignore')
+            if table_name in ['orders_paid_creditcard']:
+                dfs[table_name] = pd.read_csv(path, sep=",", encoding_errors='ignore')
+            else:
+                dfs[table_name] = pd.read_csv(path, sep="\t", encoding_errors='ignore')
             getDataValidation(dfs[table_name], table_name)
         return dfs
 

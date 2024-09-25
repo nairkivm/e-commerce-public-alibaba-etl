@@ -29,3 +29,102 @@ product_id 	option_id 	quantity	price 	on_sale 	specs
 2500	2502	20	350	1	1200XM3 Wireless Headphones 40 Hz�40,000 Hz (54 kHz Sampling)/40 Hz�60,000 Hz (LDAC 120 kHz Sampling, 800 kbps)
 2600	2601	9	800	0	Sony IER-M7 In-ears Headphone. Driver Unit by Quad-balanced armature. Frequency Response 5 Hz�20,000 Hz
 2600	2602	60	900	1	Sony IER-M9 In-ears Headphone. Driver Unit by Penta Balanced Armature. Frequency Response 10 Hz�40,000 Hz
+2700	2701	5	800	1	Dell Inspiron 15 - 8GB RAM, 15.6-inch display, Intel Core i5 processor
+2700	2702	3	1000	0	Dell Inspiron 15 - 16GB RAM, 15.6-inch display, Intel Core i7 processor
+2800	2801	4	1200	1	HP Spectre x360 - 13.3-inch, Intel Core i5 processor, 8GB RAM
+2800	2802	2	1400	0	HP Spectre x360 - 15.6-inch, Intel Core i7 processor, 16GB RAM
+2900	2901	10	999	1	Samsung Galaxy S21 - 128GB storage, Exynos 2100 processor
+2900	2902	5	1199	0	Samsung Galaxy S21 - 256GB storage, Exynos 2100 processor
+3000	3001	8	799	1	Google Pixel 5 - 128GB storage, Snapdragon 765G processor
+3000	3002	4	899	0	Google Pixel 5 - 256GB storage, Snapdragon 765G processor
+3100	3101	6	999	1	iPad Pro 11-inch - 128GB storage, A12Z Bionic chip
+3100	3102	3	1199	0	iPad Pro 11-inch - 256GB storage, A12Z Bionic chip
+3200	3201	7	899	1	Microsoft Surface Pro 7 - 128GB storage, Intel Core i5 processor
+3200	3202	2	1099	0	Microsoft Surface Pro 7 - 256GB storage, Intel Core i7 processor
+3300	3301	5	1200	1	Lenovo ThinkPad X1 Carbon - 8GB RAM, 14-inch display, Intel Core i5 processor
+3300	3302	3	1400	0	Lenovo ThinkPad X1 Carbon - 16GB RAM, 14-inch display, Intel Core i7 processor
+3400	3401	4	1500	1	ASUS ROG Zephyrus G14 - 16GB RAM, 14-inch display, AMD Ryzen 9 processor
+3400	3402	2	1700	0	ASUS ROG Zephyrus G14 - 32GB RAM, 14-inch display, AMD Ryzen 9 processor
+3500	3501	10	299	1	Bose QuietComfort 35 II - Black, Wireless noise-cancelling headphones
+3500	3502	5	349	0	Bose QuietComfort 35 II - Silver, Wireless noise-cancelling headphones
+3600	3601	8	349	1	Sony WH-1000XM4 - Black, Wireless noise-cancelling headphones
+3600	3602	4	399	0	Sony WH-1000XM4 - Silver, Wireless noise-cancelling headphones
+3700	3701	15	149	1	JBL Charge 4 - Black, Portable Bluetooth speaker
+3700	3702	10	169	0	JBL Charge 4 - Blue, Portable Bluetooth speaker
+3800	3801	20	49	1	Amazon Echo Dot (4th Gen) - Charcoal, Smart speaker with Alexa
+3800	3802	15	59	0	Amazon Echo Dot (4th Gen) - Glacier White, Smart speaker with Alexa
+3900	3901	12	229	1	Google Nest Hub Max - Charcoal, Smart display with Google Assistant
+3900	3902	8	249	0	Google Nest Hub Max - Chalk, Smart display with Google Assistant
+4000	4001	25	149	1	Fitbit Charge 4 - Black, Fitness tracker with built-in GPS
+4000	4002	20	169	0	Fitbit Charge 4 - Rosewood, Fitness tracker with built-in GPS
+4100	4101	18	299	1	Garmin Forerunner 245 - Black, GPS running watch
+4100	4102	12	329	0	Garmin Forerunner 245 - Aqua, GPS running watch
+4200	4201	10	299	1	Oculus Quest 2 - 64GB, All-in-one VR headset
+4200	4202	5	399	0	Oculus Quest 2 - 256GB, All-in-one VR headset
+4300	4301	7	799	1	DJI Mavic Air 2 - Fly More Combo, Compact drone with 4K camera
+4300	4302	3	999	0	DJI Mavic Air 2 - Standard, Compact drone with 4K camera
+4400	4401	12	499	1	PlayStation 5 - Digital Edition, Next-gen gaming console
+4400	4402	8	599	0	PlayStation 5 - Standard Edition, Next-gen gaming console
+4500	4501	10	499	1	Xbox Series X - 1TB, Powerful gaming console
+4500	4502	5	599	0	Xbox Series X - 2TB, Powerful gaming console
+4600	4601	6	2999	1	Samsung QLED 8K TV - 65-inch, 8K resolution, Quantum Processor 8K
+4600	4602	3	3999	0	Samsung QLED 8K TV - 75-inch, 8K resolution, Quantum Processor 8K
+4700	4701	20	49	1	Roku Streaming Stick+ - Standard, 4K streaming device
+4700	4702	10	59	0	Roku Streaming Stick+ - 4K, 4K streaming device
+4800	4801	25	129	1	Kindle Paperwhite - 8GB, E-reader with high-resolution display
+4800	4802	15	149	0	Kindle Paperwhite - 32GB, E-reader with high-resolution display
+4900	4901	30	49	1	Philips Hue White and Color Ambiance - Single, Smart light bulb
+4900	4902	20	89	0	Philips Hue White and Color Ambiance - 2-Pack, Smart light bulb
+5000	5001	12	199	1	Ring Video Doorbell 3 - Standard, Smart doorbell with 1080p HD video
+5000	5002	8	249	0	Ring Video Doorbell 3 - Plus, Smart doorbell with 1080p HD video
+5100	5101	10	249	1	Nest Learning Thermostat - 3rd Gen, Smart thermostat with auto-schedule
+5100	5102	5	299	0	Nest Learning Thermostat - 4th Gen, Smart thermostat with auto-schedule
+5200	5201	20	29	1	TP-Link Kasa Smart Plug - Single, Wi-Fi smart plug with voice control
+5200	5202	10	49	0	TP-Link Kasa Smart Plug - 2-Pack, Wi-Fi smart plug with voice control
+5300	5301	15	199	1	August Smart Lock Pro - Silver, Smart lock with remote access
+5300	5302	8	249	0	August Smart Lock Pro - Black, Smart lock with remote access
+5400	5401	12	299	1	Arlo Pro 3 - Single Camera, Wireless security camera with 2K HDR video
+5400	5402	6	499	0	Arlo Pro 3 - 2-Camera Kit, Wireless security camera with 2K HDR video
+5500	5501	20	49	1	First Alert Smoke and CO Detector - Battery, Smart smoke and carbon monoxide detector
+5500	5502	10	69	0	First Alert Smoke and CO Detector - Hardwired, Smart smoke and carbon monoxide detector
+5600	5601	25	199	1	Sonos One - Black, Smart speaker with voice control
+5600	5602	15	229	0	Sonos One - White, Smart speaker with voice control
+5700	5701	30	79	1	Lenovo Smart Clock - Standard, Smart clock with Google Assistant
+5700	5702	20	99	0	Lenovo Smart Clock - Essential, Smart clock with Google Assistant
+5800	5801	10	299	1	Ray-Ban Stories - Wayfarer, Smart glasses with built-in cameras
+5800	5802	5	349	0	Ray-Ban Stories - Round, Smart glasses with built-in cameras
+5900	5901	12	399	1	GoPro HERO9 Black - Standard, Action camera with 5K video
+5900	5902	8	449	0	GoPro HERO9 Black - Bundle, Action camera with 5K video
+6000	6001	15	129	1	Garmin Dash Cam Mini - Standard, Compact dash camera with 1080p HD video
+6000	6002	10	149	0	Garmin Dash Cam Mini - Bundle, Compact dash camera with 1080p HD video
+6100	6101	20	199	1	Motorola MBP36XL - Standard, Video baby monitor with 5-inch screen
+6100	6102	10	249	0	Motorola MBP36XL - Deluxe, Video baby monitor with 5-inch screen
+6200	6201	15	199	1	Furbo Dog Camera - Standard, Pet camera with treat tossing
+6200	6202	8	249	0	Furbo Dog Camera - Plus, Pet camera with treat tossing
+6300	6301	25	29	1	Tile Pro - Black, High-performance Bluetooth tracker
+6300	6302	15	39	0	Tile Pro - White, High-performance Bluetooth tracker
+6400	6401	30	19	1	Anker PowerDrive 2 - Black, Dual USB car charger
+6400	6402	20	29	0	Anker PowerDrive 2 - White, Dual USB car charger
+6500	6501	20	29	1	iOttie Easy One Touch 4 - Standard, Car mount with one-touch locking mechanism
+6500	6502	10	39	0	iOttie Easy One Touch 4 - Deluxe, Car mount with one-touch locking mechanism
+6600	6601	15	299	1	Pioneer AVH-2500NEX - Standard, In-dash car stereo with 7-inch touchscreen
+6600	6602	8	349	0	Pioneer AVH-2500NEX - Premium, In-dash car stereo with 7-inch touchscreen
+6700	6701	20	79	1	Seagate Backup Plus Portable - 1TB, External hard drive
+6700	6702	10	99	0	Seagate Backup Plus Portable - 2TB, External hard drive
+6800	6801	25	49	1	SanDisk Extreme Pro SDXC - 64GB, High-performance memory card
+6800	6802	15	79	0	SanDisk Extreme Pro SDXC - 128GB, High-performance memory card
+6900	6901	30	19	1	Kingston DataTraveler 100 G3 - 32GB, USB flash drive
+6900	6902	20	29	0	Kingston DataTraveler 100 G3 - 64GB, USB flash drive
+7000	7001	15	199	1	TP-Link Archer AX6000 - Standard, High-speed Wi-Fi 6 router
+7000	7002	8	249	0	TP-Link Archer AX6000 - Pro, High-speed Wi-Fi 6 router
+7100	7101	20	179	1	Netgear Nighthawk X6S - Standard, Tri-band Wi-Fi router
+7100	7102	10	229	0	Netgear Nighthawk X6S - Pro, Tri-band Wi-Fi router
+7200	7201	12	299	1	Epson EcoTank ET-4760 - Standard, All-in-one printer with cartridge-free printing
+7200	7202	6	349	0	Epson EcoTank ET-4760 - Deluxe, All-in-one printer with cartridge-free printing
+7300	7301	15	129	1	Brother HL-L2350DW - Standard, Compact monochrome laser printer
+7300	7302	8	149	0	Brother HL-L2350DW - Pro, Compact monochrome laser printer
+7400	7401	10	99	1	Canon CanoScan LiDE400 - Standard, High-resolution flatbed scanner
+7400	7402	5	129	0	Canon CanoScan LiDE400 - Premium, High-resolution flatbed scanner
+7500	7501	20	79	1	Logitech C920s Pro HD Webcam - Standard, Full HD webcam with 1080p video
+7500	7502	10	99	0	Logitech C920s Pro HD Webcam - Deluxe
+

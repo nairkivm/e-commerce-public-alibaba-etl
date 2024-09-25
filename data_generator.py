@@ -1,10 +1,9 @@
-import math
 import random as rd
 from utils.source_requirements import SourceRequirements
 from faker import Faker
-from faker.providers import internet
 from datetime import datetime, timedelta
 import string
+import argparse
 
 fake = Faker()
 print('Faker ready')
@@ -32,7 +31,10 @@ class SourceData:
             i = 0
             for line in file.readlines():
                 if i > 0:
-                    values.append(line.split('\t')[column].strip())
+                    if self.table_name in ['orders_paid_creditcard']:
+                        values.append(line.split(',')[column].strip())
+                    else:
+                        values.append(line.split('\t')[column].strip())
                 i+=1
             values = list(set(values))
             return values
@@ -44,32 +46,53 @@ class SourceData:
             result = []
             i = 0
             for i in range(len(lines)):
-                if i > 0:
-                    values = [str(val).strip() for val in lines[i].split('\t')]
-                    dict_ = {}
-                    for j in range(len(keys)):
-                        dict_[keys[j]] = values[j]
+                if (i > 0) & (lines[i].strip() != ''):
+                    try:
+                        if self.table_name in ['orders_paid_creditcard']:
+                            values = [str(val).strip() for val in lines[i].split(',')]
+                        else:
+                            values = [str(val).strip() for val in lines[i].split('\t')]
+                        dict_ = {}
+                        for j in range(len(keys)):
+                            dict_[keys[j]] = values[j]
+                    except:
+                        pass
                     result.append(dict_)
             return result
 
 sources = {str(table): SourceData(table) for table in SourceRequirements().requirements.keys()}
 
-def generate_carts_has_products(rows: int):
+def generate_carts(rows: int):
+    last_shopping_cart_id = sources['shoppingcarts'].read_last_line().split('\t')[0]
+    generated_data = []
+    for i in range(rows):
+        shopping_cart_id = str(int(last_shopping_cart_id) + (i + 1)*100)
+        status = str(rd.randint(0,1))
+        generated_row = "\t".join([shopping_cart_id, status])
+        generated_data.append(generated_row)
+    
+    generated_data = "\n".join(sorted(generated_data))
+    sources['shoppingcarts'].append_to_file(generated_data)
+
+def generate_carts_has_products():
     last_shopping_cart_id = sources['carts_has_products'].read_last_line().split('\t')[0]
+    shopping_cart_ids = sources['shoppingcarts'].fetch_distinct_columns_values(0)
+    shopping_cart_ids = [x for x in shopping_cart_ids if int(x) > int(last_shopping_cart_id)]
     product_ids = sources['products'].fetch_distinct_columns_values(0)
     option_ids = sources['options'].fetch_distinct_columns_values(0)
 
-    shopping_cart_ids = [int(i*100) for i in range(int(last_shopping_cart_id[:2]) + 1, math.ceil(int(last_shopping_cart_id[:2]) + (1 + rows) / 4))]
     option_ids = [x for x in option_ids if x[:2] in [x[:2] for x in product_ids]]
 
     generated_data = []
-    for i in range(rows):
-        shopping_cart_id = str(rd.choice(shopping_cart_ids))
-        product_id = str(rd.choice(product_ids))
-        option_id = str(rd.choice([x for x in option_ids if x[:2] == product_id[:2]]))
-        quantity = str(rd.randint(1,7))
-        generated_row = "\t".join([shopping_cart_id, product_id, option_id, quantity])
-        generated_data.append(generated_row)
+    for shopping_cart_id in shopping_cart_ids:
+        shopping_cart_id = str(shopping_cart_id)
+        item_distinct = rd.randint(1,3)
+        for j in range(item_distinct):
+            product_id = str(rd.choice(product_ids))
+            option_id = str(rd.choice([x for x in option_ids if x[:2] == product_id[:2]]))
+            quantity = str(rd.randint(1,7))
+            generated_row = "\t".join([shopping_cart_id, product_id, option_id, quantity])
+            generated_data.append(generated_row)
     
     generated_data = "\n".join(sorted(generated_data))
     sources['carts_has_products'].append_to_file(generated_data)
@@ -439,6 +462,62 @@ def generate_products_has_options():
 """
     sources['products_has_options'].append_to_file(generated_data)
 
+def generated_vendors():
+    generated_data="""\
+5700	HP	3216549870	hp@gmail.com
+5800	Samsung	6549873210	samsung@gmail.com
+5900	Google	7896541230	google@gmail.com
+6000	Bose	1234567890	bose@gmail.com
+6100	JBL	9876543210	jbl@gmail.com
+6200	Amazon	4567891230	amazon@gmail.com
+6300	Garmin	6543219870	garmin@gmail.com
+6400	Oculus	7891234560	oculus@gmail.com
+6500	DJI	3219876540	dji@gmail.com
+6600	PlayStation	1237894560	playstation@gmail.com
+6700	Xbox	9871236540	xbox@gmail.com
+6800	Roku	4561237890	roku@gmail.com
+6900	Kindle	6547893210	kindle@gmail.com
+7000	Philips	7893216540	philips@gmail.com
+7100	Ring	3214569870	ring@gmail.com
+7200	Nest	1236547890	nest@gmail.com
+7300	TP-Link	9873216540	tplink@gmail.com
+7400	August	4569871230	august@gmail.com
+7500	Arlo	6541237890	arlo@gmail.com
+"""
+    sources['vendors'].append_to_file(generated_data)
+
+def generated_product_sold_vendor():
+    generated_data="""\
+5400	2700
+5700	2800
+5800	2900
+5900	3000
+5000	3100
+5100	3200
+5200	3300
+5300	3400
+6000	3500
+5600	3600
+6100	3700
+6200	3800
+5900	3900
+6300	4000
+6300	4100
+6400	4200
+6500	4300
+6600	4400
+6700	4500
+6800	4600
+6900	4700
+7000	4800
+7100	4900
+7200	5000
+7300	5100
+7400	5200
+7500	5300
+"""
+    sources['products_sold_vendor'].append_to_file(generated_data)
+
 def generate_users_and_user_has_creditcard(rows: int):
     last_user_id = sources['users'].read_last_line().split('\t')[0]
     
@@ -496,8 +575,8 @@ def generate_orders_and_orders_has_product(rows: int):
         tax = str(round(rd.randint(600, 1035) / 1000, 4))
         order_date = str(order_dates[i].date())
         delivery_date = str((order_dates[i] + timedelta(rd.randint(1,7))).date())
-        ship_name = fake.name()
-        ship_address = fake.address()
+        ship_name = fake.name().replace('\n',' ')
+        ship_address = fake.address().replace('\n',' ')
         tracking_number = ''.join([rd.choice(chars), rd.choice(chars), str(rd.randint(1001,9999))])
         delivery_status = rd.choice(['1','0'])
         item_distinct = rd.randint(1, 3)
@@ -516,20 +595,90 @@ def generate_orders_and_orders_has_product(rows: int):
             generated_data_order_product.append(generated_row_order_product)
         
         total_item = str(sum(quantities))
-        total_cost = str(sum(costs)+float(shipping_fee)+float(tax)*sum(costs)+rd.choice([10,15,20,25,30,35]))
+        total_cost = str(round((sum(costs)+float(shipping_fee)+float(tax)*sum(costs)+rd.choice([10,15,20,25,30,35])),2))
         generated_row_order = "\t".join([order_id, total_item, shipping_fee, tax, total_cost, order_date, delivery_date, ship_name, ship_address, tracking_number, delivery_status])
         generated_data_order.append(generated_row_order)
   
     generated_data_order_product = "\n".join(sorted(generated_data_order_product))
-    # sources['orders_has_products'].append_to_file(generated_data_order_product)
+    sources['orders_has_products'].append_to_file(generated_data_order_product)
     generated_data_order = "\n".join(sorted(generated_data_order))
-    # sources['orders'].append_to_file(generated_data_order)
-    print(generated_data_order)
-    print(generated_data_order_product)
+    sources['orders'].append_to_file(generated_data_order)
 
-generate_orders_and_orders_has_product(5)
-# if __name__ == "__main__":
-#     file_name = 'hello.txt'
-#     text = 'Hello, world!'
-#     append_to_file(file_name, text)
-#     print(f"Appended '{text}' to {file_name}")
+def generate_orders_placed_user():
+    last_order_id = sources['orders_placed_user'].read_last_line().split('\t')[1]
+    order_ids = sources['orders'].fetch_distinct_columns_values(0)
+    user_ids =  sources['users'].fetch_distinct_columns_values(0)
+    
+    order_ids = [x for x in order_ids if int(x) > int(last_order_id)]
+
+    generated_data = []
+    for order_id in order_ids:
+        user_id = rd.choice(user_ids)
+        generated_row = "\t".join([user_id, order_id])
+        generated_data.append(generated_row)
+    
+    generated_data = "\n".join(sorted(generated_data))
+    sources['orders_placed_user'].append_to_file(generated_data)
+
+def generate_orders_paid_creditcard():
+    last_order_id = sources['orders_paid_creditcard'].read_last_line().split(' ')[1]
+    order_user = sources['orders_placed_user'].fetch_data()
+    order_ids = [x['order_id'] for x in order_user if int(x['order_id']) > int(last_order_id)]
+
+    user_ids = [x['user_id'] for x in order_user if int(x['order_id']) > int(last_order_id)]
+    user_creditcard = sources['user_has_creditcards'].fetch_data()
+    creditcard_catalogue = {
+        user_id_: credit_card_number_ for user_id_, credit_card_number_
+        in zip(
+            [x['user_id'] for x in user_creditcard],
+            [x['credit_card_number'] for x in user_creditcard]
+        )
+    }
+    creditcards = [creditcard_catalogue[user_id_] for user_id_ in user_ids]
+
+    generated_data = []
+    for i in range(len(order_ids)):
+        generated_row = ",".join([str(creditcards[i]), str(order_ids[i])])
+        generated_data.append(generated_row)
+    
+    generated_data = "\n".join(sorted(generated_data))
+    sources['orders_paid_creditcard'].append_to_file(generated_data)
+
+# generate_carts(5)
+# generate_carts_has_products()
+# generate_categories()
+# generate_products()
+# generate_products_belong_category()
+# generate_options()
+# generate_products_has_options()
+# generated_vendors()
+# generated_product_sold_vendor()
+# generate_users_and_user_has_creditcard(5)
+# generate_orders_and_orders_has_product(5)
+# generate_orders_placed_user()
+# generate_orders_paid_creditcard()
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        description='Generate data and append to existing files'
+    )
+    choices = ['carts', 'users', 'orders']
+    parser.add_argument('--type', help=f"Type of generated data. Options: {choices}", choices=choices, required=True)
+    parser.add_argument('--rows', help="Amount of generated rows (in the main data).", required=True)
+
+    args = parser.parse_args()
+
+    rows = int(args.rows)
+
+    print("Generating the data...")
+    if args.type == 'carts':
+        generate_carts(rows)
+        generate_carts_has_products()
+    elif args.type == 'users':
+        generate_users_and_user_has_creditcard(rows)
+    elif args.type == 'orders':
+        generate_orders_and_orders_has_product(rows)
+        generate_orders_placed_user()
+        generate_orders_paid_creditcard()
+    print("Data has been generated!")
+    

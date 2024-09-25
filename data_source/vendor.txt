@@ -6,3 +6,23 @@ vendor_id 	vendor_name 	vendor_phone 	vendor_email
 5400	Dell 	8465473132	dell@gmail.com
 5500	Monoprice 	3189831684	monoprice@gmail.com
 5600	Sony 	4846531876	sony@gmail.com
+5700	HP	3216549870	hp@gmail.com
+5800	Samsung	6549873210	samsung@gmail.com
+5900	Google	7896541230	google@gmail.com
+6000	Bose	1234567890	bose@gmail.com
+6100	JBL	9876543210	jbl@gmail.com
+6200	Amazon	4567891230	amazon@gmail.com
+6300	Garmin	6543219870	garmin@gmail.com
+6400	Oculus	7891234560	oculus@gmail.com
+6500	DJI	3219876540	dji@gmail.com
+6600	PlayStation	1237894560	playstation@gmail.com
+6700	Xbox	9871236540	xbox@gmail.com
+6800	Roku	4561237890	roku@gmail.com
+6900	Kindle	6547893210	kindle@gmail.com
+7000	Philips	7893216540	philips@gmail.com
+7100	Ring	3214569870	ring@gmail.com
+7200	Nest	1236547890	nest@gmail.com
+7300	TP-Link	9873216540	tplink@gmail.com
+7400	August	4569871230	august@gmail.com
+7500	Arlo	6541237890	arlo@gmail.com
+

@@ -18,6 +18,112 @@ services:
       timeout: 5s
       retries: 5
 
+  airflow-init:
+    build: 
+      context: .
+      dockerfile: Dockerfile-airflow
+      args:
+        CREDENTIAL: ${CREDENTIAL}
+    image: my_airflow_image:latest
+    environment:
+      - AIRFLOW__CORE__EXECUTOR=${AIRFLOW__CORE__EXECUTOR}
+      - AIRFLOW__CORE__SQL_ALCHEMY_CONN=${AIRFLOW__CORE__SQL_ALCHEMY_CONN}
+      - AIRFLOW__CORE__FERNET_KEY=${AIRFLOW__CORE__FERNET_KEY}
+      - AIRFLOW__CORE__LOAD_EXAMPLES=${AIRFLOW__CORE__LOAD_EXAMPLES}
+      - AIRFLOW__CORE__DAGS_FOLDER=${AIRFLOW__CORE__DAGS_FOLDER}
+      - AIRFLOW__WEBSERVER__SECRET_KEY=${AIRFLOW__WEBSERVER__SECRET_KEY}
+      - _PIP_ADDITIONAL_REQUIREMENTS=${_PIP_ADDITIONAL_REQUIREMENTS}
+    command: >
+      bash -c "airflow db init &&
+               airflow users create --username ${AIRFLOW_ADMIN_USERNAME} --password ${AIRFLOW_ADMIN_PASSWORD} --firstname ${AIRFLOW_ADMIN_FIRSTNAME} --lastname ${AIRFLOW_ADMIN_LASTNAME} --role Admin --email ${AIRFLOW_ADMIN_EMAIL}"
+    volumes:
+      - ./dags:/opt/airflow/dags:z
+      - ./etl-logs:/opt/airflow/etl-logs:z
+      - ./utils:/opt/airflow/utils:z
+      - ./data_source:/opt/airflow/data_source:z
+      - /var/run/docker.sock:/var/run/docker.sock  # Mount Docker socket
+    env_file:
+      - .env
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - my_network
+
+  airflow-webserver:
+    build: 
+      context: .
+      dockerfile: Dockerfile-airflow
+      args:
+        CREDENTIAL: ${CREDENTIAL}
+    image: my_airflow_image:latest
+    environment:
+      - AIRFLOW__CORE__EXECUTOR=${AIRFLOW__CORE__EXECUTOR}
+      - AIRFLOW__CORE__SQL_ALCHEMY_CONN=${AIRFLOW__CORE__SQL_ALCHEMY_CONN}
+      - AIRFLOW__CORE__FERNET_KEY=${AIRFLOW__CORE__FERNET_KEY}
+      - AIRFLOW__CORE__LOAD_EXAMPLES=${AIRFLOW__CORE__LOAD_EXAMPLES}
+      - AIRFLOW__CORE__DAGS_FOLDER=${AIRFLOW__CORE__DAGS_FOLDER}
+      - AIRFLOW__WEBSERVER__SECRET_KEY=${AIRFLOW__WEBSERVER__SECRET_KEY}
+      - _PIP_ADDITIONAL_REQUIREMENTS=${_PIP_ADDITIONAL_REQUIREMENTS}
+    ports:
+      - "8080:8080"
+    command: >
+      bash -c "airflow webserver"
+    volumes:
+      - ./dags:/opt/airflow/dags:z
+      - ./etl-logs:/opt/airflow/etl-logs:z
+      - ./utils:/opt/airflow/utils:z
+      - ./data_source:/opt/airflow/data_source:z
+      - /var/run/docker.sock:/var/run/docker.sock  # Mount Docker socket
+    env_file:
+      - .env
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - my_network
+
+  airflow-scheduler:
+    build: 
+      context: .
+      dockerfile: Dockerfile-airflow
+      args:
+        CREDENTIAL: ${CREDENTIAL}
+    image: my_airflow_image:latest
+    environment:
+      - AIRFLOW__CORE__EXECUTOR=${AIRFLOW__CORE__EXECUTOR}
+      - AIRFLOW__CORE__SQL_ALCHEMY_CONN=${AIRFLOW__CORE__SQL_ALCHEMY_CONN}
+      - AIRFLOW__CORE__FERNET_KEY=${AIRFLOW__CORE__FERNET_KEY}
+      - AIRFLOW__CORE__LOAD_EXAMPLES=${AIRFLOW__CORE__LOAD_EXAMPLES}
+      - AIRFLOW__CORE__DAGS_FOLDER=${AIRFLOW__CORE__DAGS_FOLDER}
+      - AIRFLOW__WEBSERVER__SECRET_KEY=${AIRFLOW__WEBSERVER__SECRET_KEY}
+      - _PIP_ADDITIONAL_REQUIREMENTS=${_PIP_ADDITIONAL_REQUIREMENTS}
+    command: >
+      bash -c "airflow db init && airflow scheduler"
+    volumes:
+      - ./dags:/opt/airflow/dags:z
+      - ./etl-logs:/opt/airflow/etl-logs:z
+      - ./utils:/opt/airflow/utils:z
+      - ./data_source:/opt/airflow/data_source:z
+      - /var/run/docker.sock:/var/run/docker.sock  # Mount Docker socket
+    env_file:
+      - .env
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - my_network
+
+  dbt:
+    build: 
+      context: .
+      dockerfile: Dockerfile-dbt
+    image: dbt_airflow_docker:latest
+    volumes:
+      - ./dbt_project/${DBT_PROJECT_NAME}:/usr/app
+      - ./${CREDENTIAL}:${CREDENTIAL_PATH_FOR_DBT}
+      - ~/.dbt:/usr/app/.dbt
+
   zookeeper:
     image: wurstmeister/zookeeper:latest
     ports:
@@ -54,99 +160,6 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
-
-  airflow-init:
-    build: 
-      context: .
-      dockerfile: Dockerfile-airflow
-      args:
-        CREDENTIAL: ${CREDENTIAL}
-    image: my_airflow_image:latest
-    environment:
-      - AIRFLOW__CORE__EXECUTOR=${AIRFLOW__CORE__EXECUTOR}
-      - AIRFLOW__CORE__SQL_ALCHEMY_CONN=${AIRFLOW__CORE__SQL_ALCHEMY_CONN}
-      - AIRFLOW__CORE__FERNET_KEY=${AIRFLOW__CORE__FERNET_KEY}
-      - AIRFLOW__CORE__LOAD_EXAMPLES=${AIRFLOW__CORE__LOAD_EXAMPLES}
-      - AIRFLOW__CORE__DAGS_FOLDER=${AIRFLOW__CORE__DAGS_FOLDER}
-      - AIRFLOW__WEBSERVER__SECRET_KEY=${AIRFLOW__WEBSERVER__SECRET_KEY}
-      - _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:- apache-airflow-providers-docker}
-    command: >
-      bash -c "airflow db init &&
-               airflow users create --username ${ADMIN_USERNAME} --password ${ADMIN_PASSWORD} --firstname ${ADMIN_FIRSTNAME} --lastname ${ADMIN_LASTNAME} --role Admin --email ${ADMIN_EMAIL}"
-    volumes:
-      - ./dags:/opt/airflow/dags:z
-      - ./etl-logs:/opt/airflow/etl-logs:z
-      - ./utils:/opt/airflow/utils:z
-      - ./data_source:/opt/airflow/data_source:z
-    env_file:
-      - .env
-    depends_on:
-      postgres:
-        condition: service_healthy
-    networks:
-      - my_network
-
-  airflow-webserver:
-    build: 
-      context: .
-      dockerfile: Dockerfile-airflow
-      args:
-        CREDENTIAL: ${CREDENTIAL}
-    image: my_airflow_image:latest
-    environment:
-      - AIRFLOW__CORE__EXECUTOR=${AIRFLOW__CORE__EXECUTOR}
-      - AIRFLOW__CORE__SQL_ALCHEMY_CONN=${AIRFLOW__CORE__SQL_ALCHEMY_CONN}
-      - AIRFLOW__CORE__FERNET_KEY=${AIRFLOW__CORE__FERNET_KEY}
-      - AIRFLOW__CORE__LOAD_EXAMPLES=${AIRFLOW__CORE__LOAD_EXAMPLES}
-      - AIRFLOW__CORE__DAGS_FOLDER=${AIRFLOW__CORE__DAGS_FOLDER}
-      - AIRFLOW__WEBSERVER__SECRET_KEY=${AIRFLOW__WEBSERVER__SECRET_KEY}
-      - _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:- apache-airflow-providers-docker}
-    ports:
-      - "8080:8080"
-    command: >
-      bash -c "airflow webserver"
-    volumes:
-      - ./dags:/opt/airflow/dags:z
-      - ./etl-logs:/opt/airflow/etl-logs:z
-      - ./utils:/opt/airflow/utils:z
-      - ./data_source:/opt/airflow/data_source:z
-    env_file:
-      - .env
-    depends_on:
-      postgres:
-        condition: service_healthy
-    networks:
-      - my_network
-
-  airflow-scheduler:
-    build: 
-      context: .
-      dockerfile: Dockerfile-airflow
-      args:
-        CREDENTIAL: ${CREDENTIAL}
-    image: my_airflow_image:latest
-    environment:
-      - AIRFLOW__CORE__EXECUTOR=${AIRFLOW__CORE__EXECUTOR}
-      - AIRFLOW__CORE__SQL_ALCHEMY_CONN=${AIRFLOW__CORE__SQL_ALCHEMY_CONN}
-      - AIRFLOW__CORE__FERNET_KEY=${AIRFLOW__CORE__FERNET_KEY}
-      - AIRFLOW__CORE__LOAD_EXAMPLES=${AIRFLOW__CORE__LOAD_EXAMPLES}
-      - AIRFLOW__CORE__DAGS_FOLDER=${AIRFLOW__CORE__DAGS_FOLDER}
-      - AIRFLOW__WEBSERVER__SECRET_KEY=${AIRFLOW__WEBSERVER__SECRET_KEY}
-      - _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:- apache-airflow-providers-docker}
-    command: >
-      bash -c "airflow db init && airflow scheduler"
-    volumes:
-      - ./dags:/opt/airflow/dags:z
-      - ./etl-logs:/opt/airflow/etl-logs:z
-      - ./utils:/opt/airflow/utils:z
-      - ./data_source:/opt/airflow/data_source:z
-    env_file:
-      - .env
-    depends_on:
-      postgres:
-        condition: service_healthy
-    networks:
-      - my_network
 
   etl-stream:
     build:

@@ -52,7 +52,7 @@ logging.basicConfig(
 pipeline = CsvToBigQueryPipeline(
     dest_table='store.dim_vendors',
     project_id=os.environ.get('GCP_PROJECT_ID'),
-    credentials_dest=os.environ.get('CREDENTIAL_PATH')
+    credentials_dest=os.environ.get('CREDENTIAL_PATH_FOR_AIRFLOW')
 )
 
 # Define the start etl task
